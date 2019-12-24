@@ -1,7 +1,6 @@
 package com.nuil.simplegithub.timeline
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.nuil.simplegithub.R
@@ -19,7 +18,15 @@ class TimeLineAdapter : RecyclerView.Adapter<TimeLineViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: TimeLineViewHolder, position: Int) {
-        holder.setData()
+        val text: String? = timeLineList[position]
+        text?.let { holder.setData(it) }
     }
 
+    fun addItem(item: String) {
+        timeLineList.add(item)
+    }
+
+    fun addItem(items: List<String>) {
+        timeLineList.addAll(items)
+    }
 }
